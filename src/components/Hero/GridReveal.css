@@ -1,0 +1,64 @@
+.grid-reveal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.hidden-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* An elegant abstract dark/red image to fit the gothic theme */
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  filter: contrast(120%) saturate(150%);
+  opacity: 0.8;
+}
+
+[data-theme='light'] .hidden-bg-image {
+  /* Invert or adjust for light mode if desired, but red/dark art looks good anywhere */
+  filter: contrast(110%) saturate(120%) brightness(1.2);
+  opacity: 0.5;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 10), 1fr);
+  grid-template-rows: repeat(var(--grid-rows, 10), 1fr);
+}
+
+.grid-cell {
+  background-color: var(--bg-primary);
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--surface-bg);
+}
+
+.grid-cell:hover {
+  opacity: 0;
+  transition: none; /* Desaparece instantáneamente */
+}
+
+/* Ensure the hero content doesn't block the mouse events from reaching the grid */
+.hero-container {
+  pointer-events: none;
+}
+
+.hero-container * {
+  pointer-events: auto;
+}
