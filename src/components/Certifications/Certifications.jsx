@@ -7,8 +7,8 @@ const Certifications = () => {
   const certs = [
     {
       id: "bachiller",
-      title: "Bachiller en Ingeniería de Software",
-      issuer: "Grado Académico Universitario",
+      title: "Bachiller en Desarrollo de Software",
+      issuer: "Grado Académico",
       date: "Título Oficial",
       icon: <GraduationCap className="cert-icon" />,
       image: "/titulobachiller.webp"
@@ -43,12 +43,12 @@ const Certifications = () => {
     <section id="certifications" className="section cert-section">
       <div className="container">
         <h2 className="section-title"><span>Trayectoria</span>Formación y Certificaciones</h2>
-        
+
         <div className="cert-grid">
           {/* Certifications List */}
           <div className="cert-list">
             {certs.map((cert, index) => (
-              <motion.div 
+              <motion.div
                 key={cert.id}
                 className="glass-panel cert-card"
                 initial={{ opacity: 0, x: -50 }}
@@ -73,7 +73,7 @@ const Certifications = () => {
           </div>
 
           {/* LinkedIn Profile Promo */}
-          <motion.div 
+          <motion.div
             className="glass-panel linkedin-promo"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -87,7 +87,7 @@ const Certifications = () => {
               </div>
               <h3>Conectemos en LinkedIn</h3>
               <p>
-                Mantente al día con mis últimos proyectos, publicaciones sobre 
+                Mantente al día con mis últimos proyectos, publicaciones sobre
                 arquitectura de software y reflexiones sobre el mundo del desarrollo web.
               </p>
               <a href="https://www.linkedin.com/in/rodrigo-arturo-dulanto-tejeda-1a99a5318/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
