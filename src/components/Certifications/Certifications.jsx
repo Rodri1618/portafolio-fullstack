@@ -42,7 +42,7 @@ const Certifications = () => {
   return (
     <section id="certifications" className="section cert-section">
       <div className="container">
-        <h2 className="section-title"><span>Trayectoria</span>Formación y Certificaciones</h2>
+        <h2 className="section-title"><span>Trayectoria</span>Formación y Certificación</h2>
 
         <div className="cert-grid">
           {/* Certifications List */}
