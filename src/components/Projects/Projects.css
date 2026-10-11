@@ -16,6 +16,8 @@
   width: 100%;
   height: 240px;
   overflow: hidden;
+  border-top-left-radius: 23px;
+  border-top-right-radius: 23px;
 }
 
 .project-image {
