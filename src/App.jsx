@@ -6,6 +6,8 @@ import Certifications from './components/Certifications/Certifications';
 import Contact from './components/Contact/Contact';
 import './App.css';
 
+const currentYear = new Date().getFullYear();
+
 function App() {
   return (
     <>
@@ -18,7 +20,7 @@ function App() {
         <Contact />
       </main>
       <footer style={{ textAlign: 'center', padding: '3rem 2rem', borderTop: '1px solid var(--border-glass)', color: 'var(--text-secondary)' }}>
-        <p>Diseñado y desarrollado por <strong>Rodrigo Dulanto</strong> © {new Date().getFullYear()}</p>
+        <p>Diseñado y desarrollado por <strong>Rodrigo Dulanto</strong> © {currentYear}</p>
         <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', opacity: 0.7 }}>Ingeniería de Software · Arquitectura SaaS · Soluciones Escalables</p>
       </footer>
     </>

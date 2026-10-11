@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Download, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import './Contact.css';
 
