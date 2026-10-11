@@ -23,6 +23,7 @@ const Hero = () => {
               src="/profile.jpg" 
               alt="Rodrigo Dulanto" 
               className="hero-avatar"
+              fetchPriority="high"
             />
           </div>
           <h2 className="hero-greeting">Hola, soy <span className="text-gradient">Rodrigo Dulanto</span></h2>

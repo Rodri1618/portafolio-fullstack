@@ -29,6 +29,44 @@
   transform: scale(1.05);
 }
 
+.carousel-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .carousel-controls {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carousel-btn:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  transform: scale(1.1);
+}
+
 .project-overlay {
   position: absolute;
   top: 0;
@@ -47,6 +85,16 @@
 
 .project-card:hover .project-overlay {
   opacity: 1;
+}
+
+/* Ensure the overlay doesn't block the carousel controls */
+.project-overlay {
+  z-index: 5;
+  pointer-events: none;
+}
+
+.project-overlay .btn-icon {
+  pointer-events: auto;
 }
 
 .btn-icon {
