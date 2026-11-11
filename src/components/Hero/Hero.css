@@ -1,69 +1,55 @@
 .hero-section {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 6rem 0;
+  padding: 8rem 0 5rem;
   overflow: hidden;
 }
 
-.hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.bg-blob {
+.ambient-glow {
   position: absolute;
-  filter: blur(120px);
-  border-radius: 50%;
-  opacity: 0.3;
+  top: -8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(740px, 92vw);
+  height: 380px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.16) 0%, rgba(6, 182, 212, 0.06) 50%, transparent 72%);
+  filter: blur(55px);
+  pointer-events: none;
   z-index: 0;
-  animation: float 10s infinite alternate ease-in-out;
 }
 
-.blob-1 {
-  top: 10%;
-  left: 20%;
-  width: 500px;
-  height: 500px;
-  background: var(--accent-primary);
+.hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  text-align: center;
 }
 
-.blob-2 {
-  bottom: 10%;
-  right: 20%;
-  width: 600px;
-  height: 600px;
-  background: var(--accent-secondary);
-  animation-delay: -5s;
+.hero-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.9rem;
+  border-radius: 999px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border-highlight);
+  color: var(--badge-text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+  max-width: 100%;
 }
 
-@keyframes float {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(30px, 50px) scale(1.05); }
-}
-
-.hero-greeting {
-  font-size: clamp(0.8rem, 2vw, 1rem);
-  font-weight: 500;
-  margin-bottom: 1rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 4px;
+.trust-pill-icon {
+  flex-shrink: 0;
 }
 
 .hero-avatar-wrapper {
-  margin: 0 auto 1.5rem;
-  width: 140px;
-  height: 140px;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 1.4rem;
   border-radius: 50%;
-  padding: 4px;
+  padding: 3px;
   background: var(--gradient-main);
   box-shadow: var(--shadow-neon);
 }
@@ -71,53 +57,101 @@
 .hero-avatar {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border-radius: 50%;
-  border: 4px solid var(--bg-primary);
+  object-fit: cover;
+  border: 3px solid var(--bg-primary);
 }
 
 .hero-title {
-  font-size: clamp(2rem, 8vw, 5.5rem);
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  font-family: 'Cinzel', serif;
-  word-break: break-word;
+  font-size: clamp(1.85rem, 4.6vw, 3.15rem);
+  line-height: 1.18;
+  margin-bottom: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
 }
 
 .hero-description {
-  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   color: var(--text-secondary);
-  margin-bottom: 3rem;
-  max-width: 600px;
-  font-weight: 400;
+  margin: 0 auto 2rem;
+  max-width: 540px;
+  line-height: 1.6;
 }
 
 .hero-actions {
   display: flex;
-  gap: 1.2rem;
+  gap: 0.9rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 2.25rem;
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+.hero-guarantees {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.35rem;
+  flex-wrap: wrap;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border-glass);
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.hero-guarantees span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  white-space: nowrap;
+}
+
+.guarantee-icon {
+  color: var(--accent-success);
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-  .blob-1, .blob-2 {
-    width: 300px;
-    height: 300px;
-    opacity: 0.1; /* Reduce fuertemente la intensidad roja */
-    filter: blur(80px);
-  }
-  
   .hero-section {
-    padding: 4rem 0;
+    padding: 6.25rem 0 3.5rem;
+  }
+
+  .hero-trust-pill {
+    font-size: 0.74rem;
+    padding: 0.32rem 0.75rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .hero-avatar-wrapper {
+    width: 82px;
+    height: 82px;
+    margin-bottom: 1.1rem;
+  }
+
+  .hero-title {
+    font-size: 1.68rem;
+    line-height: 1.22;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    margin-bottom: 1.65rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+    margin-bottom: 1.65rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-guarantees {
+    gap: 0.65rem 1rem;
+    padding-top: 1.15rem;
+    font-size: 0.8rem;
   }
 }
-
-

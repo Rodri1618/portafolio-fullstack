@@ -3,17 +3,23 @@ import './GridReveal.css';
 
 const GridReveal = () => {
   const [cells, setCells] = useState({ cols: 0, rows: 0, total: 0 });
+  const [isDesktopInteractive, setIsDesktopInteractive] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    setIsDesktopInteractive(mediaQuery.matches);
+
     let timeoutId;
     const updateGrid = () => {
-      // Debounce resize para mayor rendimiento
+      if (!mediaQuery.matches) {
+        setCells({ cols: 0, rows: 0, total: 0 });
+        return;
+      }
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         const width = window.innerWidth;
         const height = window.innerHeight;
-        // Aumentar el tamaño de las celdas reduce drásticamente el número de nodos DOM
-        const size = 90;
+        const size = 100;
         const cols = Math.ceil(width / size);
         const rows = Math.ceil(height / size);
 
@@ -32,8 +38,12 @@ const GridReveal = () => {
     };
   }, []);
 
+  if (!isDesktopInteractive) {
+    return <div className="ambient-mesh-bg" aria-hidden="true" />;
+  }
+
   return (
-    <div className="grid-reveal-container">
+    <div className="grid-reveal-container" aria-hidden="true">
       <div className="hidden-bg-image"></div>
       <div className="grid-overlay">
         {Array.from({ length: cells.total }).map((_, i) => (

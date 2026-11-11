@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Code2, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') return 'dark';
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) return savedTheme;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
 
   useEffect(() => {
-    // Check local storage or system preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const initialTheme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
-    setTheme(initialTheme);
-    document.documentElement.setAttribute('data-theme', initialTheme);
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
+  useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -32,56 +34,70 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Inicio', href: '#home' },
+    { name: 'Servicios', href: '#solutions' },
     { name: 'Proyectos', href: '#projects' },
-    { name: 'Metodología', href: '#workflow' },
-    { name: 'Trayectoria', href: '#certifications' },
+    { name: 'Cómo Trabajo', href: '#workflow' },
+    { name: 'Respaldo', href: '#certifications' },
     { name: 'Contacto', href: '#contact' },
   ];
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar-scrolled glass-panel' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
-        <a href="#home" className="navbar-logo">
-          <Code2 className="logo-icon" />
-          <span className="text-gradient">Portfolio</span>
+        <a href="#home" className="navbar-brand">
+          <div className="brand-badge">
+            <img src="/favicon.svg" alt="Logo Rodrigo Dulanto" className="brand-favicon" />
+          </div>
+          <div className="brand-text">
+            <span className="brand-name">Rodrigo <span className="text-gradient">Dulanto</span></span>
+            <span className="brand-role">Software & Web Solutions</span>
+          </div>
         </a>
 
         {/* Desktop Nav */}
         <div className="desktop-nav-wrapper">
-          <ul className="nav-links desktop-nav">
+          <ul className="nav-links">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a href={link.href} className="nav-link">{link.name}</a>
               </li>
             ))}
           </ul>
-          
-          <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+
+          <div className="navbar-right">
+            <button onClick={toggleTheme} className="theme-toggle" aria-label="Cambiar tema">
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <a href="#contact" className="btn btn-primary navbar-cta-btn">
+              Cotizar Proyecto
+            </a>
+          </div>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Controls */}
         <div className="mobile-controls">
-          <button onClick={toggleTheme} className="theme-toggle mobile-theme-toggle" aria-label="Toggle Theme">
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          <button onClick={toggleTheme} className="theme-toggle" aria-label="Cambiar tema">
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X /> : <Menu />}
+          <button
+            className="mobile-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Abrir menú"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
+      </div>
 
-        </div>
-
-      {/* Mobile Nav */}
+      {/* Simple Mobile Dropdown */}
       {isOpen && (
-        <div className="mobile-nav glass-panel">
+        <div className="mobile-nav">
           <ul className="nav-links-mobile">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <a 
-                  href={link.href} 
-                  className="nav-link"
+                <a
+                  href={link.href}
+                  className="nav-link-mobile"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

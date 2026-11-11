@@ -2,116 +2,162 @@
   position: relative;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
 .project-card {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-secondary);
 }
 
 .project-card:hover {
-  transform: scale(1.02);
+  border-color: var(--border-highlight);
+  transform: translateY(-4px);
 }
 
 .project-image-wrapper {
   position: relative;
   width: 100%;
-  height: 240px;
+  height: 230px;
   overflow: hidden;
+  background: #fff8fa;
 }
 
 .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.6s ease;
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-.project-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  opacity: 0;
-  transition: var(--transition-smooth);
-}
-
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.btn-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: var(--surface-bg);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  transition: var(--transition-smooth);
-  border: 1px solid var(--border-glass);
-}
-
-.btn-icon:hover {
-  background: var(--text-primary);
-  color: var(--bg-primary);
-  transform: scale(1.1);
+.project-category-pill {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 0.65rem;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border-highlight);
+  color: var(--badge-text);
+  font-size: 0.74rem;
+  font-weight: 600;
 }
 
 .project-info {
-  padding: 2rem;
+  padding: 1.65rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .project-info h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  color: var(--text-primary);
 }
 
 .project-desc {
   color: var(--text-secondary);
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 0.92rem;
+  line-height: 1.58;
+  margin-bottom: 1.35rem;
   flex-grow: 1;
 }
 
-.project-architecture {
+.project-footer {
   display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  font-size: 0.9rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-glass);
+}
+
+.project-tech-inline {
+  font-size: 0.78rem;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: var(--surface-bg);
-  border-radius: 12px;
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tech-badge {
-  font-size: 0.8rem;
   font-weight: 500;
-  padding: 0.4rem 1rem;
-  background: var(--surface-bg);
-  color: var(--text-primary);
-  border-radius: 9999px;
-  border: 1px solid var(--border-glass);
+}
+
+.project-live-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  white-space: nowrap;
+}
+
+.project-live-link:hover {
+  opacity: 0.85;
+}
+
+.project-wa-link {
+  color: var(--accent-success);
+}
+
+.mobile-swipe-hint {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.1rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .projects-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project-card {
+    min-width: 85%;
+    scroll-snap-align: center;
+  }
+
+  .project-image-wrapper {
+    height: 205px;
+  }
+
+  .project-info {
+    padding: 1.25rem;
+  }
+
+  .project-info h3 {
+    font-size: 1.12rem;
+  }
+
+  .project-desc {
+    font-size: 0.88rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .project-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .mobile-swipe-hint {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.85rem;
+  }
 }
