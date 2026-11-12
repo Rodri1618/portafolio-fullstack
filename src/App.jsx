@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar/Navbar';
 import AmbientBackground from './components/Background/AmbientBackground';
 import Hero from './components/Hero/Hero';
@@ -28,6 +29,7 @@ function App() {
         <p>© {CURRENT_YEAR} <strong>Rodrigo Dulanto</strong> · Ingeniería de Software & Soluciones para Empresas</p>
       </footer>
       <FloatingAdvisor />
+      <Analytics />
     </div>
   );
 }
