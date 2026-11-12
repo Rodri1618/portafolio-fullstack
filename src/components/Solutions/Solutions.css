@@ -5,15 +5,16 @@
 .solutions-bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .solution-card {
-  padding: 2rem 1.75rem;
+  padding: 2.5rem 2.15rem;
+  min-height: 330px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.75rem;
+  gap: 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -159,11 +160,12 @@
 @media (max-width: 960px) {
   .solutions-bento-grid {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
   .solution-card {
-    padding: 1.65rem 1.4rem;
-    gap: 1.4rem;
+    min-height: auto;
+    padding: 2rem 1.65rem;
+    gap: 1.65rem;
   }
 }
