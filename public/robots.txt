@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Permitir indexación en motores de búsqueda con IA (ChatGPT, Perplexity, Gemini, Claude)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://rodrigodulantotejeda.online/sitemap.xml
