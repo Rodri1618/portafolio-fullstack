@@ -13,7 +13,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.workflow-step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-highlight);
 }
 
 .step-top {
@@ -24,12 +30,9 @@
 }
 
 .step-badge {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  color: var(--badge-text);
-  background: var(--badge-bg);
-  border: 1px solid var(--border-highlight);
-  padding: 0.28rem 0.75rem;
+  padding: 0.28rem 0.8rem;
   border-radius: 999px;
   text-transform: uppercase;
   letter-spacing: 0.8px;
@@ -39,12 +42,45 @@
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: var(--surface-bg);
-  border: 1px solid var(--border-glass);
-  color: var(--accent-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.step-accent-warm .step-badge,
+.step-accent-warm .step-icon-box {
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.step-accent-blue .step-badge,
+.step-accent-blue .step-icon-box {
+  background: rgba(59, 130, 246, 0.14);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+}
+
+.step-accent-emerald .step-badge,
+.step-accent-emerald .step-icon-box {
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+[data-theme='light'] .step-accent-warm .step-badge,
+[data-theme='light'] .step-accent-warm .step-icon-box {
+  color: #b45309;
+}
+
+[data-theme='light'] .step-accent-blue .step-badge,
+[data-theme='light'] .step-accent-blue .step-icon-box {
+  color: #1d4ed8;
+}
+
+[data-theme='light'] .step-accent-emerald .step-badge,
+[data-theme='light'] .step-accent-emerald .step-icon-box {
+  color: #047857;
 }
 
 .workflow-step-card h3 {
@@ -58,50 +94,13 @@
   line-height: 1.58;
 }
 
-.workflow-cta-banner {
-  padding: 2rem 2.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-highlight);
-}
-
-.banner-text h3 {
-  font-size: 1.22rem;
-  margin-bottom: 0.35rem;
-  color: var(--text-primary);
-}
-
-.banner-text p {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-}
-
-.banner-btn {
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
 @media (max-width: 900px) {
   .workflow-steps-grid {
     grid-template-columns: 1fr;
     gap: 1.15rem;
-    margin-bottom: 2rem;
   }
 
   .workflow-step-card {
     padding: 1.5rem 1.35rem;
-  }
-
-  .workflow-cta-banner {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.65rem 1.35rem;
-  }
-
-  .banner-btn {
-    width: 100%;
   }
 }

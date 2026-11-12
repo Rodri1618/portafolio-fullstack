@@ -19,6 +19,7 @@ const Hero = () => {
               src="/profile.jpg"
               alt="Rodrigo Dulanto"
               className="hero-avatar"
+              fetchPriority="high"
             />
           </div>
 

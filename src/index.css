@@ -3,62 +3,80 @@
 :root {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
 
-  /* Dark Theme - Corporate Trust Blue & Deep Navy Slate */
-  --bg-primary: #0a0f1d;
-  --bg-secondary: #111827;
-  --bg-glass: rgba(23, 32, 53, 0.78);
-  --bg-glass-strong: rgba(13, 19, 34, 0.94);
+  /* 60-30-10 Triadic Palette (Dark Mode):
+     60% Deep Indigo Obsidian | 30% Royal Blue & Violet | 10% Warm Amber Gold */
+  --bg-primary: #080b14;
+  --bg-secondary: #0f1526;
+  --bg-card: linear-gradient(165deg, rgba(26, 35, 62, 0.78) 0%, rgba(15, 21, 38, 0.9) 100%);
+  --bg-glass: rgba(20, 28, 50, 0.75);
+  --bg-glass-strong: rgba(11, 16, 30, 0.94);
+
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
 
+  /* 3-Color Triad: Blue (Trust) + Violet (Innovation) + Amber Gold (Warmth & Action) */
   --accent-primary: #3b82f6;
-  --accent-secondary: #06b6d4;
+  --accent-secondary: #8b5cf6;
+  --accent-warm: #f59e0b;
   --accent-success: #10b981;
 
   --border-glass: rgba(255, 255, 255, 0.09);
-  --border-highlight: rgba(59, 130, 246, 0.38);
-  --shadow-neon: 0 10px 30px rgba(37, 99, 235, 0.32);
-  --shadow-glass: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --border-specular: rgba(255, 255, 255, 0.18);
+  --border-highlight: rgba(139, 92, 246, 0.42);
+  --border-warm: rgba(245, 158, 11, 0.45);
 
-  --btn-bg: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  --shadow-neon: 0 12px 32px rgba(79, 70, 229, 0.35);
+  --shadow-warm: 0 12px 32px rgba(245, 158, 11, 0.22);
+  --shadow-glass: 0 14px 36px rgba(0, 0, 0, 0.42);
+
+  --btn-bg: linear-gradient(135deg, #2563eb 0%, #7c3aed 55%, #db2777 100%);
   --btn-text: #ffffff;
 
-  --surface-bg: rgba(255, 255, 255, 0.04);
-  --surface-hover: rgba(255, 255, 255, 0.08);
-  --badge-bg: rgba(59, 130, 246, 0.12);
-  --badge-text: #60a5fa;
+  --surface-bg: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(255, 255, 255, 0.1);
 
-  --gradient-main: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  --badge-bg: rgba(245, 158, 11, 0.13);
+  --badge-text: #fbbf24;
+
+  --gradient-main: linear-gradient(135deg, #60a5fa 0%, #a855f7 52%, #f59e0b 100%);
   --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme='light'] {
-  /* Light Theme - Clean Corporate White & Ice Slate */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f1f5f9;
-  --bg-glass: rgba(255, 255, 255, 0.92);
-  --bg-glass-strong: rgba(255, 255, 255, 0.98);
+  /* 60-30-10 Triadic Palette (Light Mode) */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #eef2f9;
+  --bg-card: linear-gradient(165deg, #ffffff 0%, #f8fafc 100%);
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-glass-strong: rgba(255, 255, 255, 0.96);
+
   --text-primary: #0f172a;
   --text-secondary: #475569;
 
   --accent-primary: #2563eb;
-  --accent-secondary: #0284c7;
+  --accent-secondary: #7c3aed;
+  --accent-warm: #d97706;
   --accent-success: #059669;
 
   --border-glass: rgba(15, 23, 42, 0.09);
-  --border-highlight: rgba(37, 99, 235, 0.3);
-  --shadow-neon: 0 10px 25px rgba(37, 99, 235, 0.22);
-  --shadow-glass: 0 10px 30px rgba(15, 23, 42, 0.06);
+  --border-specular: rgba(255, 255, 255, 0.9);
+  --border-highlight: rgba(124, 58, 237, 0.32);
+  --border-warm: rgba(217, 119, 6, 0.35);
 
-  --btn-bg: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+  --shadow-neon: 0 10px 28px rgba(79, 70, 229, 0.22);
+  --shadow-warm: 0 10px 28px rgba(217, 119, 6, 0.16);
+  --shadow-glass: 0 12px 32px rgba(15, 23, 42, 0.06);
+
+  --btn-bg: linear-gradient(135deg, #2563eb 0%, #7c3aed 60%, #e11d48 100%);
   --btn-text: #ffffff;
 
   --surface-bg: rgba(15, 23, 42, 0.04);
   --surface-hover: rgba(15, 23, 42, 0.08);
-  --badge-bg: rgba(37, 99, 235, 0.09);
-  --badge-text: #1d4ed8;
 
-  --gradient-main: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+  --badge-bg: rgba(217, 119, 6, 0.11);
+  --badge-text: #b45309;
+
+  --gradient-main: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #d97706 100%);
 }
 
 * {
@@ -123,12 +141,14 @@ a {
   color: inherit;
 }
 
+/* Tactile 3D Card Depth */
 .glass-panel {
-  background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--bg-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border: 1px solid var(--border-glass);
-  border-radius: 20px;
+  border-top: 1px solid var(--border-specular);
+  border-radius: 22px;
   box-shadow: var(--shadow-glass);
   transition: var(--transition-smooth);
 }
@@ -147,26 +167,40 @@ a {
   padding: 0 clamp(1.25rem, 4.5vw, 2.75rem);
 }
 
-/* Generous section spacing & clear visual separation */
 .section {
   padding: clamp(5rem, 9vw, 7.25rem) 0;
   position: relative;
 }
 
 .section-alt {
-  background-color: var(--bg-secondary);
+  background: linear-gradient(
+    180deg,
+    rgba(15, 21, 38, 0.85) 0%,
+    rgba(22, 28, 52, 0.65) 50%,
+    rgba(15, 21, 38, 0.85) 100%
+  );
   border-top: 1px solid var(--border-glass);
   border-bottom: 1px solid var(--border-glass);
 }
 
+[data-theme='light'] .section-alt {
+  background: linear-gradient(
+    180deg,
+    rgba(238, 242, 249, 0.9) 0%,
+    rgba(245, 243, 255, 0.85) 50%,
+    rgba(238, 242, 249, 0.9) 100%
+  );
+}
+
 .section-title {
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  margin-bottom: 2.25rem;
+  font-size: clamp(1.65rem, 4vw, 2.45rem);
+  margin-bottom: 2.5rem;
   text-align: center;
   color: var(--text-primary);
   line-height: 1.22;
 }
 
+/* Warm Amber 3rd Color Eyebrow Pill */
 .section-title span {
   display: block;
   width: fit-content;
@@ -176,20 +210,11 @@ a {
   font-weight: 600;
   color: var(--badge-text);
   background: var(--badge-bg);
-  border: 1px solid var(--border-highlight);
-  padding: 0.28rem 0.85rem;
+  border: 1px solid var(--border-warm);
+  padding: 0.28rem 0.9rem;
   border-radius: 9999px;
   text-transform: uppercase;
-  letter-spacing: 1.1px;
-}
-
-.section-subtitle {
-  color: var(--text-secondary);
-  font-size: clamp(0.95rem, 1.8vw, 1.08rem);
-  line-height: 1.6;
-  max-width: 580px;
-  margin: 0 auto 3.25rem;
-  text-align: center;
+  letter-spacing: 1.2px;
 }
 
 .btn {
@@ -197,7 +222,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  padding: 0.9rem 1.7rem;
+  padding: 0.9rem 1.75rem;
   border-radius: 9999px;
   font-weight: 600;
   transition: var(--transition-smooth);
@@ -210,13 +235,13 @@ a {
 .btn-primary {
   background: var(--btn-bg);
   color: var(--btn-text);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.28);
+  box-shadow: var(--shadow-neon);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-neon);
-  filter: brightness(1.05);
+  filter: brightness(1.08);
+  box-shadow: 0 14px 34px rgba(124, 58, 237, 0.42);
 }
 
 .btn-secondary {
@@ -233,11 +258,10 @@ a {
 
 @media (max-width: 768px) {
   .section {
-    padding: 4.25rem 0;
+    padding: 4rem 0;
   }
 
-  .section-subtitle {
-    margin-bottom: 2.25rem;
-    font-size: 0.94rem;
+  .section-title {
+    margin-bottom: 1.85rem;
   }
 }

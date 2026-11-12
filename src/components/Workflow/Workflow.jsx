@@ -5,18 +5,21 @@ const Workflow = () => {
   const steps = [
     {
       step: 'Paso 01',
+      accent: 'warm',
       icon: <MessageSquare size={20} />,
       title: 'Cotización en el Día',
       description: 'Hablamos por WhatsApp y definimos tu presupuesto fijo.'
     },
     {
       step: 'Paso 02',
+      accent: 'blue',
       icon: <Laptop size={20} />,
       title: 'Avances en tu Celular',
       description: 'Revisa el progreso en vivo antes de la entrega final.'
     },
     {
       step: 'Paso 03',
+      accent: 'emerald',
       icon: <ShieldCheck size={20} />,
       title: 'Entrega y Garantía',
       description: 'Publicamos tu proyecto con capacitación y soporte directo.'
@@ -33,7 +36,7 @@ const Workflow = () => {
 
         <div className="workflow-steps-grid">
           {steps.map((item) => (
-            <div key={item.step} className="glass-panel workflow-step-card">
+            <div key={item.step} className={`glass-panel workflow-step-card step-accent-${item.accent}`}>
               <div className="step-top">
                 <span className="step-badge">{item.step}</span>
                 <div className="step-icon-box">{item.icon}</div>

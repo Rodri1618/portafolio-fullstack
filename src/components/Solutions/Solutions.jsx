@@ -6,7 +6,8 @@ const Solutions = () => {
     {
       id: 'ecommerce',
       featured: true,
-      tag: 'Popular',
+      accent: 'warm',
+      tag: '★ Más Popular',
       icon: <ShoppingBag size={22} />,
       title: 'Tiendas y Catálogos',
       points: [
@@ -19,6 +20,7 @@ const Solutions = () => {
     {
       id: 'sistemas',
       featured: false,
+      accent: 'blue',
       tag: 'Empresas',
       icon: <Layers size={22} />,
       title: 'Sistemas a Medida',
@@ -32,6 +34,7 @@ const Solutions = () => {
     {
       id: 'corporativo',
       featured: false,
+      accent: 'violet',
       tag: 'Negocios',
       icon: <QrCode size={22} />,
       title: 'Webs y Apps QR',
@@ -56,7 +59,7 @@ const Solutions = () => {
           {solutions.map((item) => (
             <div
               key={item.id}
-              className={`glass-panel solution-card ${item.featured ? 'solution-card-featured' : ''}`}
+              className={`glass-panel solution-card solution-accent-${item.accent} ${item.featured ? 'solution-card-featured' : ''}`}
             >
               <div>
                 <div className="solution-top-row">

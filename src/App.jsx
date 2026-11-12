@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar/Navbar';
+import AmbientBackground from './components/Background/AmbientBackground';
 import Hero from './components/Hero/Hero';
 import Solutions from './components/Solutions/Solutions';
 import Projects from './components/Projects/Projects';
@@ -12,8 +13,9 @@ const CURRENT_YEAR = new Date().getFullYear();
 function App() {
   return (
     <div className="app-root">
+      <AmbientBackground />
       <Navbar />
-      <main>
+      <main style={{ position: 'relative', zIndex: 1 }}>
         <Hero />
         <Solutions />
         <Projects />
