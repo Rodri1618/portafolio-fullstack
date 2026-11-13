@@ -129,16 +129,18 @@
 }
 
 .project-info h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.38rem;
+  font-weight: 700;
+  margin-bottom: 0.55rem;
   color: var(--text-primary);
 }
 
 .project-desc {
   color: var(--text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.58;
-  margin-bottom: 1.35rem;
+  font-size: 0.98rem;
+  font-weight: 450;
+  line-height: 1.6;
+  margin-bottom: 1.45rem;
   flex-grow: 1;
 }
 

@@ -126,8 +126,9 @@
 }
 
 .solution-title {
-  font-size: 1.22rem;
-  margin-bottom: 1rem;
+  font-size: 1.38rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
   color: var(--text-primary);
 }
 
@@ -135,14 +136,15 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.72rem;
 }
 
 .solution-points li {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  font-size: 0.88rem;
+  gap: 0.6rem;
+  font-size: 0.96rem;
+  font-weight: 500;
   color: var(--text-primary);
 }
 

@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
 
 :root {
+  --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
 
   /* 60-30-10 Triadic Palette (Dark Mode):
@@ -12,7 +13,7 @@
   --bg-glass-strong: rgba(11, 16, 30, 0.94);
 
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --text-secondary: #b4c2d6;
 
   /* 3-Color Triad: Blue (Trust) + Violet (Innovation) + Amber Gold (Warmth & Action) */
   --accent-primary: #3b82f6;
@@ -107,11 +108,13 @@ html {
 body {
   font-family: var(--font-sans);
   font-optical-sizing: auto;
+  font-weight: 450;
+  font-size: 1.02rem;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
-  letter-spacing: -0.011em;
+  line-height: 1.62;
+  letter-spacing: -0.012em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -126,9 +129,10 @@ h4,
 h5,
 h6,
 .section-title {
-  font-family: var(--font-sans);
-  font-weight: 600;
-  letter-spacing: -0.028em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  word-spacing: 0.03em;
   text-wrap: balance;
 }
 
@@ -193,11 +197,12 @@ a {
 }
 
 .section-title {
-  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
-  margin-bottom: 3.25rem;
+  font-size: clamp(2.05rem, 4.4vw, 3.25rem);
+  font-weight: 800;
+  margin-bottom: 3.5rem;
   text-align: center;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 /* Warm Amber 3rd Color Eyebrow Pill */

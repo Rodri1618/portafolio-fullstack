@@ -24,12 +24,12 @@ const Hero = () => {
           </div>
 
           <h1 className="hero-title">
-            Webs, Tiendas y Sistemas para{' '}
-            <span className="text-gradient">Tu Negocio</span>
+            Digitaliza y Multiplica{' '}
+            <span className="text-gradient">Tus Ventas</span>
           </h1>
 
           <p className="hero-description">
-            Soluciones digitales rápidas, seguras y listas para vender más.
+            Webs corporativas, catálogos con IA en WhatsApp y sistemas a medida para tu empresa.
           </p>
 
           <div className="hero-actions">

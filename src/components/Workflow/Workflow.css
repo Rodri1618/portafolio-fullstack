@@ -84,7 +84,8 @@
 }
 
 .workflow-step-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.32rem;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
